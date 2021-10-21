@@ -5,6 +5,7 @@ package Eldar;
 import org.junit.After;
 import org.junit.Before;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,7 +35,7 @@ public class WikiPageTest {
     @Before
     public void initWebDriver() {
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver.manage().window().fullscreen();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(url);
 
@@ -47,15 +48,14 @@ public class WikiPageTest {
     page.clickOnSearch();
     page.getCurrentUrl();
 
-    assertNotEquals(2,1);
+    assertEquals(1,1);
+
+
     }
-    @After
-    public void closeDriver(){
+    @AfterEach
+    public void CloseDriver(){
         driver.quit();
     }
-
-
-
 }
 
 
